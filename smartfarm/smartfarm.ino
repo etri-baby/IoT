@@ -281,7 +281,7 @@ void loop() {
            tem, hum, illuminance, soilhumidity,isLed, isFan, isPump, isWindow );
   
   send_time += 1;
-  if ((send_time) > 10) {
+  if ((send_time) > 60) {
     Serial.println("Sensor Timer is ON");
     client.publish("smart/farm/message", pubJson, MQTTpubQos);
     Serial.print("temperature : ");
@@ -296,7 +296,7 @@ void loop() {
   }
 
   timeout += 1;
-  if (timeout % 10 == 0) {
+  if (timeout % 60 == 0) {
     cdsValue = analogRead(0);
     cdsValue /= 10;
     waterValue = analogRead(1);
