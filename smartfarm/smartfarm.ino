@@ -301,7 +301,7 @@ void setup() {
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
   Serial.println("Callback!");
-  
+
   if (client.connect(clientName)) {
     Serial.println("MQTT Clinet Connect!");
     subscribeMQTT();
@@ -342,7 +342,6 @@ void loop() {
     Serial.println(cdsValue);
     Serial.print("soilhumidity : ");
     Serial.println(waterValue);
-    Serial.println(__TIME__);
     send_time = 0;
   }
 
