@@ -331,7 +331,7 @@ void loop() {
           tem, hum, illuminance, soilhumidity, isLed, isFan, isPump, isWindow);
   
   send_time += 1;
-  if ((send_time) > 30) {
+  if ((send_time) > 60) {
     Serial.println("Sensor Timer is ON");
     client.publish("smart/farm/message", pubJson, MQTTpubQos);
     Serial.print("temperature : ");
@@ -411,5 +411,5 @@ void loop() {
     reconnect();
     Serial.println("reconnect!");
   }
-  delay(1000);
+  delay(500);
 }
